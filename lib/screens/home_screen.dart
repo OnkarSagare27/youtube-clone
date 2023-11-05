@@ -17,22 +17,22 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     Container(
       child: Center(
-        child: Text('Home'),
+        child: Text('Shorts'),
       ),
     ),
     Container(
       child: Center(
-        child: Text('Home'),
+        child: Text('Upload'),
       ),
     ),
     Container(
       child: Center(
-        child: Text('Home'),
+        child: Text('Subscriptions'),
       ),
     ),
     Container(
       child: Center(
-        child: Text('Home'),
+        child: Text('You'),
       ),
     ),
   ];
@@ -59,7 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff0F0F0F),
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.transparent,
         title: SizedBox(
           width: 100,
@@ -198,39 +200,163 @@ class _HomeScreenState extends State<HomeScreen> {
         children: _pages,
       ),
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white,
+        height: 45,
+        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+        backgroundColor: Color(0xFF0F0F0F),
         onDestinationSelected: (selectedPageIndex) {
           setState(() {
             _selectedPageIndex = selectedPageIndex;
             _pageController.jumpToPage(selectedPageIndex);
           });
         },
-        indicatorColor: Colors.orange,
+        indicatorColor: Colors.transparent,
         selectedIndex: _selectedPageIndex,
         destinations: const <Widget>[
           NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
+            selectedIcon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.home_filled,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Home',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                )
+              ],
+            ),
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Icon(
+                      Icons.home_filled,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      'Home',
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    )
+                  ],
+                ),
+              ],
+            ),
             label: 'Home',
             tooltip: 'Home',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.map_rounded),
-            icon: Icon(Icons.map_outlined),
-            label: 'Bases',
-            tooltip: 'Bases',
+            selectedIcon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.video_call,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Shorts',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                )
+              ],
+            ),
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.video_call_outlined,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Shorts',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                )
+              ],
+            ),
+            label: 'Shorts',
+            tooltip: 'Shorts',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.search_rounded),
-            icon: Icon(Icons.search_outlined),
-            label: 'Search',
-            tooltip: 'Search',
+            selectedIcon: Icon(
+              Icons.add_circle_outline,
+              size: 40,
+              color: Colors.white,
+            ),
+            icon: Icon(
+              Icons.add_circle_outline,
+              size: 40,
+              color: Colors.white,
+            ),
+            label: 'Upload',
+            tooltip: 'Upload',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.settings_rounded),
-            icon: Icon(Icons.settings_outlined),
-            label: 'Settings',
-            tooltip: 'Settings',
+            selectedIcon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.subscriptions,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Subscriptions',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                )
+              ],
+            ),
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.subscriptions_outlined,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Subscriptions',
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                )
+              ],
+            ),
+            label: 'Home',
+            tooltip: 'Home',
+          ),
+          NavigationDestination(
+            selectedIcon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.account_circle,
+                  color: Colors.white,
+                ),
+                Text(
+                  'You',
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+            icon: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.account_circle_outlined,
+                  color: Colors.white,
+                ),
+                Text(
+                  'You',
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+            label: 'Account',
+            tooltip: 'Account',
           ),
         ],
       ),

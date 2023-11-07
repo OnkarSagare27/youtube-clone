@@ -6,7 +6,12 @@ class VideoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(children: [Image.asset('assets/thumbnails/valorant.jpg')]),
+      child: Column(children: [
+        Image.asset('assets/thumbnails/valorant.jpg'),
+        Container(
+          child: Row(children: []),
+        )
+      ]),
     );
   }
 }

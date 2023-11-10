@@ -8,7 +8,34 @@ class VideoCard extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Image.asset('assets/thumbnails/valorant.jpg'),
+          Stack(
+            children: [
+              Image.asset(
+                'assets/thumbnails/valorant.jpg',
+              ),
+              Positioned(
+                right: 10,
+                bottom: 10,
+                child: Container(
+                  padding: EdgeInsets.all(5),
+                  // height: 20,
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: const BorderRadius.all(Radius.circular(5)),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      '10:38',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -67,7 +94,7 @@ class VideoCard extends StatelessWidget {
                     splashRadius: 18,
                     color: Colors.white,
                     onPressed: () => print('Menu Pressed'),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.more_vert_rounded,
                     ),
                   ),

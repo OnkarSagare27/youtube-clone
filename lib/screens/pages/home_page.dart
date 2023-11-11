@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Container(
           margin: EdgeInsets.only(bottom: 10),
@@ -124,7 +124,36 @@ class _HomePageState extends State<HomePage> {
                 ],
               )),
         ),
-        VideoCard()
+        const VideoCard(
+          videoDuration: '10:38',
+          thumbnailUrl:
+              'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
+          channelPfp:
+              'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
+          channelNameAndStuff: 'Apna College • 1.3M views • 1 year ago',
+          videoTitle:
+              'All about Game development | What to study, jobs, packages? Simply Explained',
+        ),
+        const VideoCard(
+          videoDuration: '10:38',
+          thumbnailUrl:
+              'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
+          channelPfp:
+              'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
+          channelNameAndStuff: 'Apna College • 1.3M views • 1 year ago',
+          videoTitle:
+              'All about Game development | What to study, jobs, packages? Simply Explained',
+        ),
+        const VideoCard(
+          videoDuration: '10:38',
+          thumbnailUrl:
+              'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
+          channelPfp:
+              'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
+          channelNameAndStuff: 'Apna College • 1.3M views • 1 year ago',
+          videoTitle:
+              'All about Game development | What to study, jobs, packages? Simply Explained',
+        ),
       ],
     );
   }

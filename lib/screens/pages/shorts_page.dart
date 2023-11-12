@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:youtube_clone/data_darts/yt_data.dart';
 
 class ShortsPage extends StatefulWidget {
-  static const String id = 'ShortsPage';
   @override
   _ShortsPageState createState() => _ShortsPageState();
 }
@@ -42,8 +41,9 @@ class ShortsList extends StatefulWidget {
   final String caption;
   final String likes;
   final String comments;
-  ShortsList(
-      {required this.name,
+  const ShortsList(
+      {super.key,
+      required this.name,
       required this.caption,
       required this.comments,
       required this.likes,
@@ -65,7 +65,7 @@ class _ShortsListState extends State<ShortsList> {
 
     return Stack(
       children: [
-        Container(
+        SizedBox(
           width: w,
           height: h,
           child: Image.asset(
@@ -77,7 +77,7 @@ class _ShortsListState extends State<ShortsList> {
           padding: EdgeInsets.only(top: 25.0, left: 15.0, right: 15, bottom: 8),
           child: Column(
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(),
@@ -91,23 +91,21 @@ class _ShortsListState extends State<ShortsList> {
               SizedBox(
                 height: h * 0.275,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Icon(
-                          CupertinoIcons.ellipsis,
-                          color: Colors.white,
-                          size: 30,
-                        ),
-                      ],
-                    ),
+                  Column(
+                    children: [
+                      Icon(
+                        CupertinoIcons.ellipsis,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                    ],
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 28,
               ),
               Row(
@@ -127,12 +125,12 @@ class _ShortsListState extends State<ShortsList> {
                             color: isLike ? Colors.blue : Colors.white,
                             size: 30,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           Text(
                             widget.likes,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 16,
                             ),
@@ -143,7 +141,7 @@ class _ShortsListState extends State<ShortsList> {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 28,
               ),
               Row(
@@ -155,31 +153,29 @@ class _ShortsListState extends State<ShortsList> {
                         isDislike = !isDislike;
                       });
                     },
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.thumb_down,
-                            color: isDislike ? Colors.blue : Colors.white,
-                            size: 30,
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.thumb_down,
+                          color: isDislike ? Colors.blue : Colors.white,
+                          size: 30,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        const Text(
+                          'Dislike',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'Dislike',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 28,
               ),
               Row(
@@ -187,31 +183,29 @@ class _ShortsListState extends State<ShortsList> {
                 children: [
                   GestureDetector(
                     onTap: () {},
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.message_rounded,
+                    child: Column(
+                      children: [
+                        const Icon(
+                          Icons.message_rounded,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          widget.comments,
+                          style: const TextStyle(
                             color: Colors.white,
-                            size: 30,
+                            fontSize: 16,
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            widget.comments,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 28,
               ),
               Row(
@@ -219,49 +213,47 @@ class _ShortsListState extends State<ShortsList> {
                 children: [
                   GestureDetector(
                     onTap: () {},
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Icon(
-                            CupertinoIcons.arrowshape_turn_up_right_fill,
+                    child: const Column(
+                      children: [
+                        Icon(
+                          CupertinoIcons.arrowshape_turn_up_right_fill,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          'Share',
+                          style: TextStyle(
                             color: Colors.white,
-                            size: 30,
+                            fontSize: 16,
                           ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'Share',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     width: w * 0.6,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           widget.caption,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -274,12 +266,12 @@ class _ShortsListState extends State<ShortsList> {
                                 backgroundImage: AssetImage(widget.profilePic),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 8,
                             ),
                             Text(
                               widget.name,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,
                               ),

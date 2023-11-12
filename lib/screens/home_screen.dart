@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/screens/pages/home_page.dart';
 import 'package:youtube_clone/screens/pages/shorts_page.dart';
+import 'package:youtube_clone/screens/pages/subscriptions_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,11 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Text('Upload'),
       ),
     ),
-    Container(
-      child: Center(
-        child: Text('Subscriptions'),
-      ),
-    ),
+    SubscriptionsPage(),
     Container(
       child: Center(
         child: Text('You'),
@@ -54,28 +51,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff0F0F0F),
-      // appBar: AppBar(
-      //   elevation: 0,
-      //   backgroundColor: Colors.transparent,
-      //   title: SizedBox(
-      //     width: 100,
-      //     child: Image.asset('assets/yt_symbol_text_logo.png'),
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () => print('Pressed Cast'),
-      //       icon: Icon(Icons.cast_sharp),
-      //     ),
-      //     IconButton(
-      //       onPressed: () => print('Pressed Notifications'),
-      //       icon: Icon(Icons.notifications_outlined),
-      //     ),
-      //     IconButton(
-      //       onPressed: () => print('Pressed Search'),
-      //       icon: Icon(Icons.search_rounded),
-      //     ),
-      //   ],
-      // ),
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),

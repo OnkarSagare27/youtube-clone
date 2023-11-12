@@ -38,9 +38,8 @@ class _HomePageState extends State<HomePage> {
                     icon: Icon(Icons.search_rounded),
                   ),
                 ],
-
-                floating: true, // Set to true for the app bar to float
-                pinned: false, // Set to true to make the app bar pinned
+                floating: true,
+                pinned: false,
               ),
               SliverList(
                 delegate: SliverChildListDelegate([

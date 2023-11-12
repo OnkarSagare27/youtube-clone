@@ -1,205 +1,319 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:youtube_clone/widgets/video_card.dart';
+import 'package:youtube_clone/data_darts/yt_data.dart';
 
 class ShortsPage extends StatefulWidget {
-  const ShortsPage({super.key});
-
+  static const String id = 'ShortsPage';
   @override
-  State<ShortsPage> createState() => _ShortsPageState();
+  _ShortsPageState createState() => _ShortsPageState();
 }
+
+YTData ytData = YTData();
 
 class _ShortsPageState extends State<ShortsPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: ScrollConfiguration(
-          behavior: const ScrollBehavior().copyWith(overscroll: false),
-          child: CustomScrollView(
-            slivers: <Widget>[
-              SliverAppBar(
-                elevation: 0,
-                backgroundColor: Color(0xFF0F0F0F),
-                title: SizedBox(
-                  width: 100,
-                  child: Image.asset('assets/yt_symbol_text_logo.png'),
-                ),
-                actions: [
-                  IconButton(
-                    onPressed: () => print('Pressed Cast'),
-                    icon: Icon(Icons.cast_sharp),
-                  ),
-                  IconButton(
-                    onPressed: () => print('Pressed Notifications'),
-                    icon: Icon(Icons.notifications_outlined),
-                  ),
-                  IconButton(
-                    onPressed: () => print('Pressed Search'),
-                    icon: Icon(Icons.search_rounded),
+        body: PageView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: ytData.shortsList.length,
+            itemBuilder: (context, index) {
+              return ShortsList(
+                name: ytData.shortsList.values.elementAt(index).elementAt(0),
+                profilePic:
+                    ytData.shortsList.values.elementAt(index).elementAt(1),
+                vid: ytData.shortsList.values.elementAt(index).elementAt(2),
+                caption: ytData.shortsList.values.elementAt(index).elementAt(3),
+                likes: ytData.shortsList.values.elementAt(index).elementAt(4),
+                comments:
+                    ytData.shortsList.values.elementAt(index).elementAt(5),
+              );
+            }),
+      ),
+    );
+  }
+}
+
+class ShortsList extends StatefulWidget {
+  final String name;
+  final String profilePic;
+  final String vid;
+  final String caption;
+  final String likes;
+  final String comments;
+  ShortsList(
+      {required this.name,
+      required this.caption,
+      required this.comments,
+      required this.likes,
+      required this.vid,
+      required this.profilePic});
+
+  @override
+  _ShortsListState createState() => _ShortsListState();
+}
+
+class _ShortsListState extends State<ShortsList> {
+  bool isLike = false;
+  bool isDislike = false;
+
+  @override
+  Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+
+    return Stack(
+      children: [
+        Container(
+          width: w,
+          height: h,
+          child: Image.asset(
+            widget.vid,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: 25.0, left: 15.0, right: 15, bottom: 8),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(),
+                  Icon(
+                    Icons.camera_alt_outlined,
+                    color: Colors.white,
+                    size: 32,
+                  )
+                ],
+              ),
+              SizedBox(
+                height: h * 0.275,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Icon(
+                          CupertinoIcons.ellipsis,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 28,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isLike = !isLike;
+                      });
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.thumb_up,
+                            color: isLike ? Colors.blue : Colors.white,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.likes,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 28,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isDislike = !isDislike;
+                      });
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.thumb_down,
+                            color: isDislike ? Colors.blue : Colors.white,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Dislike',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 28,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.message_rounded,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            widget.comments,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 28,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Icon(
+                            CupertinoIcons.arrowshape_turn_up_right_fill,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Share',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
-
-                floating: true, // Set to true for the app bar to float
-                pinned: false, // Set to true to make the app bar pinned
               ),
-              SliverList(
-                delegate: SliverChildListDelegate([
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
                   Container(
-                    margin: EdgeInsets.only(bottom: 10),
-                    child: SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
+                    width: w * 0.6,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.caption,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
                           children: [
-                            Container(
-                              padding: const EdgeInsets.only(
-                                  top: 5, left: 10, right: 10, bottom: 5),
-                              margin: EdgeInsets.only(right: 15, left: 15),
-                              decoration: const BoxDecoration(
-                                  color: Color(0xFF272727),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))),
-                              child: const Icon(
-                                Icons.explore_outlined,
+                            CircleAvatar(
+                              radius: 15,
+                              backgroundColor: Colors.white,
+                              child: CircleAvatar(
+                                radius: 12.5,
+                                backgroundImage: AssetImage(widget.profilePic),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              widget.name,
+                              style: TextStyle(
                                 color: Colors.white,
-                              ),
-                            ),
-                            Container(
-                                width: 50,
-                                height: 35,
-                                margin: EdgeInsets.only(right: 10),
-                                padding: const EdgeInsets.only(
-                                    top: 5, left: 10, right: 10, bottom: 5),
-                                decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10))),
-                                child: const Center(
-                                  child: Text(
-                                    'All',
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )),
-                            Container(
-                              height: 35,
-                              margin: EdgeInsets.only(right: 10),
-                              padding: const EdgeInsets.only(
-                                  top: 5, left: 10, right: 10, bottom: 5),
-                              decoration: const BoxDecoration(
-                                  color: Color(0xFF272727),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: const Center(
-                                child: Text(
-                                  'Computer Programming',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 35,
-                              margin: EdgeInsets.only(right: 10),
-                              padding: const EdgeInsets.only(
-                                  top: 5, left: 10, right: 10, bottom: 5),
-                              decoration: const BoxDecoration(
-                                  color: Color(0xFF272727),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: const Center(
-                                child: Text(
-                                  'Music',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 35,
-                              margin: EdgeInsets.only(right: 10),
-                              padding: const EdgeInsets.only(
-                                  top: 5, left: 10, right: 10, bottom: 5),
-                              decoration: const BoxDecoration(
-                                  color: Color(0xFF272727),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: const Center(
-                                child: Text(
-                                  'Live',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                            Container(
-                              height: 35,
-                              margin: EdgeInsets.only(right: 10),
-                              padding: const EdgeInsets.only(
-                                  top: 5, left: 10, right: 10, bottom: 5),
-                              decoration: const BoxDecoration(
-                                  color: Color(0xFF272727),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10))),
-                              child: const Center(
-                                child: Text(
-                                  'Coding',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                                fontSize: 16,
                               ),
                             ),
                           ],
-                        )),
+                        ),
+                      ],
+                    ),
                   ),
-                  const VideoCard(
-                    videoDuration: '10:38',
-                    thumbnailUrl:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
-                    channelPfp:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
-                    channelNameAndStuff:
-                        'Apna College • 1.3M views • 1 year ago',
-                    videoTitle:
-                        'All about Game development | What to study, jobs, packages? Simply Explained',
-                  ),
-                  const VideoCard(
-                    videoDuration: '10:38',
-                    thumbnailUrl:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
-                    channelPfp:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
-                    channelNameAndStuff:
-                        'Apna College • 1.3M views • 1 year ago',
-                    videoTitle:
-                        'All about Game development | What to study, jobs, packages? Simply Explained',
-                  ),
-                  const VideoCard(
-                    videoDuration: '10:38',
-                    thumbnailUrl:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
-                    channelPfp:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
-                    channelNameAndStuff:
-                        'Apna College • 1.3M views • 1 year ago',
-                    videoTitle:
-                        'All about Game development | What to study, jobs, packages? Simply Explained',
-                  ),
-                ]),
-              ),
+                  Container(
+                    height: 36,
+                    width: 36,
+                    color: Colors.white,
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Container(
+                            height: 32,
+                            width: 32,
+                            child: Image.asset(
+                              'assets/images/music_bar.gif',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
-      ),
+      ],
     );
   }
 }

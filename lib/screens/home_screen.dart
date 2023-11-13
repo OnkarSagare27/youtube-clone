@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:youtube_clone/screens/pages/home_page.dart';
 import 'package:youtube_clone/screens/pages/shorts_page.dart';
 import 'package:youtube_clone/screens/pages/subscriptions_page.dart';
+import 'package:youtube_clone/screens/pages/you_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -21,11 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ),
     SubscriptionsPage(),
-    Container(
-      child: Center(
-        child: Text('You'),
-      ),
-    ),
+    YouPage(),
   ];
   late PageController _pageController;
 

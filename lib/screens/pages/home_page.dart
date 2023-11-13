@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/widgets/shorts_suggestions.dart';
 import 'package:youtube_clone/widgets/video_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -184,6 +185,7 @@ class _HomePageState extends State<HomePage> {
                     videoTitle:
                         'All about Game development | What to study, jobs, packages? Simply Explained',
                   ),
+                  ShortsSuggestions()
                 ]),
               ),
             ],

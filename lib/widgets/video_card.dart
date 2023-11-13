@@ -127,6 +127,9 @@ class VideoCard extends StatelessWidget {
               ),
             )
           ],
+        ),
+        const SizedBox(
+          height: 10,
         )
       ],
     );

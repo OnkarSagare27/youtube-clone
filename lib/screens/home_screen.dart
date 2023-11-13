@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var _selectedPageIndex;
   final List<Widget> _pages = [
-    HomePage(),
+    const HomePage(),
     ShortsPage(),
     Container(
       child: Center(

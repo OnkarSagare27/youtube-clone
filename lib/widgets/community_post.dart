@@ -24,6 +24,10 @@ class CommunityPost extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Container(
+          height: 2,
+          color: Color(0xFF2B2B2B),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,6 +124,50 @@ class CommunityPost extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: Image.network(
               'https://cdn.discordapp.com/attachments/1056114049647120445/1173551331399716864/image.png?ex=65645dd8&is=6551e8d8&hm=d8727e3fd00d085e11872db4828c859723e1147bf0f408298442f884be914112&'),
+        ),
+        SizedBox(
+          height: 60,
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.thumb_up_alt_outlined,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  '30K',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+                SizedBox(
+                  width: 40,
+                ),
+                Icon(
+                  Icons.thumb_down_alt_outlined,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  width: 180,
+                ),
+                Icon(
+                  Icons.comment_outlined,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  '329',
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ],
+            ),
+          ),
         )
       ],
     );

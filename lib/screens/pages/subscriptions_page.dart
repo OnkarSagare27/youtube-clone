@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_clone/data_darts/yt_data.dart';
+import 'package:youtube_clone/widgets/community_post.dart';
 import 'package:youtube_clone/widgets/subscribed_channel.dart';
 import 'package:youtube_clone/widgets/video_card.dart';
 
@@ -186,6 +187,19 @@ class _SubscriptionsPageState extends State<SubscriptionsPage> {
                     videoTitle:
                         'All about Game development | What to study, jobs, packages? Simply Explained',
                   ),
+                  const CommunityPost(
+                      pfp:
+                          'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
+                      name: 'Apna College',
+                      date: '2 days ago',
+                      caption:
+                          '''Diwali Gift for all❤️- we are bringing your most demanded coding tutorial on YouTube. 
+Will reveal this Diwali 🪔  
+Tabtak keep learning and keep coding 🙌🏻
+
+Pic : Had an amazing session at BITS Pilani, Hyderabad''',
+                      likesCount: '28K',
+                      commentsCount: '320'),
                   const VideoCard(
                     videoDuration: '10:38',
                     thumbnailUrl:

@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0F0F0F),
+      backgroundColor: Color(0xff0f0f0f),
       body: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),

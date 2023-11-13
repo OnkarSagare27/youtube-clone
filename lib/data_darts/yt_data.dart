@@ -33,4 +33,10 @@ class YTData {
       '30K',
     ]
   };
+
+  var subscribedChannels = {
+    0: {'pfp': 'assets/firebasePfp.jpg', 'channelName': 'Firebase'},
+    1: {'pfp': 'assets/googlePfp.jpg', 'channelName': 'Google'},
+    2: {'pfp': 'assets/flutterPfp.jpg', 'channelName': 'Flutter'}
+  };
 }

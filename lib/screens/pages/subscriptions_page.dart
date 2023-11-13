@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/data_darts/yt_data.dart';
+import 'package:youtube_clone/widgets/subscribed_channel.dart';
 import 'package:youtube_clone/widgets/video_card.dart';
 
 class SubscriptionsPage extends StatefulWidget {
@@ -11,6 +13,7 @@ class SubscriptionsPage extends StatefulWidget {
 class _SubscriptionsPageState extends State<SubscriptionsPage> {
   @override
   Widget build(BuildContext context) {
+    YTData ytData = YTData();
     return SafeArea(
       child: Scaffold(
         body: ScrollConfiguration(
@@ -44,33 +47,22 @@ class _SubscriptionsPageState extends State<SubscriptionsPage> {
                   preferredSize: Size.fromHeight(150),
                   child: Column(
                     children: [
-                      Row(
-                        children: [
-                          Container(
-                            margin: EdgeInsets.fromLTRB(15, 10, 5, 10),
-                            height: 110,
-                            width: 80,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                CircleAvatar(
-                                  radius: 35,
-                                  backgroundImage:
-                                      AssetImage('assets/images/smiley.jpg'),
-                                ),
-                                Text(
-                                  'Apna College',
-                                  maxLines: 1,
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.grey,
-                                      overflow: TextOverflow.ellipsis),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: 110,
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: ytData.subscribedChannels.length,
+                            itemBuilder: (context, index) {
+                              return SubscribedChannel(
+                                name: ytData.subscribedChannels.values
+                                    .elementAt(index)['channelName']
+                                    .toString(),
+                                pfp: ytData.subscribedChannels.values
+                                    .elementAt(index)['pfp']
+                                    .toString(),
+                              );
+                            }),
                       ),
                       Container(
                         margin: EdgeInsets.only(bottom: 10),

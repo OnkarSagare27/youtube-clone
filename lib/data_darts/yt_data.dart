@@ -1,18 +1,18 @@
 class YTData {
   var shortsList = {
     0: [
-      'Happy',
-      'assets/images/smiley.jpg',
+      'Flutter',
+      'assets/flutterPfp.jpg',
       'assets/images/waterFall.gif',
-      'The glittering but calm water reminds me of sanity',
+      'Navigation in flutter | Flutter Framework',
       '20M',
       '20K',
     ],
     1: [
-      'Abby Gale',
-      'assets/images/woman1.png',
+      'Firebase',
+      'assets/firebasePfp.jpg',
       'assets/images/rubiksCube.gif',
-      'Awesome rubiks cube',
+      'Data storage using firebase | Firestore',
       '2.5K',
       '100',
     ],
@@ -20,7 +20,7 @@ class YTData {
       'Roufus',
       'assets/images/cat.jpg',
       'assets/images/minions.gif',
-      'Minions are ❤',
+      'Calendar tutotiral | Flutter Framework',
       '50M',
       '10K'
     ],
@@ -28,7 +28,7 @@ class YTData {
       'The Stargazer',
       'assets/images/profile_pic2.jpg',
       'assets/images/universe.gif',
-      'Life in an alternate universe',
+      'Containers in flutter',
       '10M',
       '30K',
     ]

@@ -5,6 +5,7 @@ class CommunityPost extends StatelessWidget {
   const CommunityPost({
     super.key,
     required this.pfp,
+    required this.image,
     required this.name,
     required this.date,
     required this.caption,
@@ -12,6 +13,7 @@ class CommunityPost extends StatelessWidget {
     required this.commentsCount,
   });
   final String pfp;
+  final String image;
   final String name;
   final String date;
   final String caption;
@@ -122,8 +124,7 @@ class CommunityPost extends StatelessWidget {
           color: Colors.black,
           height: MediaQuery.of(context).size.width,
           width: MediaQuery.of(context).size.width,
-          child: Image.network(
-              'https://cdn.discordapp.com/attachments/1056114049647120445/1173551331399716864/image.png?ex=65645dd8&is=6551e8d8&hm=d8727e3fd00d085e11872db4828c859723e1147bf0f408298442f884be914112&'),
+          child: Image.network(image),
         ),
         SizedBox(
           height: 60,

@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Container(
                             height: 35,
-                            margin: EdgeInsets.only(right: 10),
+                            margin: const EdgeInsets.only(right: 10),
                             padding: const EdgeInsets.only(
                                 top: 5, left: 10, right: 10, bottom: 5),
                             decoration: const BoxDecoration(
@@ -153,39 +153,42 @@ class _HomePageState extends State<HomePage> {
               SliverList(
                 delegate: SliverChildListDelegate([
                   const VideoCard(
-                    videoDuration: '10:38',
+                    videoDuration: '2:11',
                     thumbnailUrl:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
+                        'https://cdn.discordapp.com/attachments/1056114049647120445/1174590852790759444/maxresdefault.png?ex=656825fa&is=6555b0fa&hm=8f5e6d9450115df189bea3919995f880c50b93b197fe2def77243619f59cec8d&',
                     channelPfp:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
-                    channelNameAndStuff:
-                        'Apna College • 1.3M views • 1 year ago',
-                    videoTitle:
-                        'All about Game development | What to study, jobs, packages? Simply Explained',
+                        'https://cdn.discordapp.com/attachments/1056114049647120445/1174591206911660073/APkrFKaD8t4oFlgXcZKoW512Z81CBJuej3K9uHAlSI0xs176-c-k-c0x00ffffff-no-rj.png?ex=6568264e&is=6555b14e&hm=d67a0ffafe990958a4e61f8305beef205f96215d757e0f727537d6bbefd418f8&',
+                    channelNameAndStuff: 'Flutter • 17K views • 1 month ago',
+                    videoTitle: 'firebase_auth (Package of the Week)',
                   ),
                   const VideoCard(
-                    videoDuration: '10:38',
+                    videoDuration: '3:29',
                     thumbnailUrl:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
+                        'https://cdn.discordapp.com/attachments/1056114049647120445/1174596406821007360/maxresdefault.png?ex=65682b26&is=6555b626&hm=a1891383fee1454ab9ab5313c1ba1a98057d7d757d0df28ac57495de1afae832&',
                     channelPfp:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
-                    channelNameAndStuff:
-                        'Apna College • 1.3M views • 1 year ago',
+                        'https://cdn.discordapp.com/attachments/1056114049647120445/1174596819397906432/GsP5Yvc5jOSop4SJf_75wdOYaEbO-7ZyYhnARodAGRnEMh-OQjGPGzUz2ZtzsHPtqFyHGvmbEtIs176-c-k-c0x00ffffff-no-rj.png?ex=65682b88&is=6555b688&hm=17d9f3f716d7445aa897a50c6c924888fcb151b5b4dc9f5faa73949fb530a4a9&',
+                    channelNameAndStuff: 'Firebase • 4.7K views • 7 days ago',
                     videoTitle:
-                        'All about Game development | What to study, jobs, packages? Simply Explained',
+                        'How Duet AI in Firebase helps you build successful apps',
                   ),
                   const VideoCard(
-                    videoDuration: '10:38',
+                    videoDuration: '0:47',
                     thumbnailUrl:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172217916750565456/hqdefault.png?ex=655f8402&is=654d0f02&hm=ba987fe642e88dc3230b59a1bd535d346a528dc1040f82e366add7611613399f&',
+                        'https://cdn.discordapp.com/attachments/1056114049647120445/1174597573563129917/maxresdefault.png?ex=65682c3c&is=6555b73c&hm=5570147261acad659b671a4db329f1668eadedcc6207e1107cce19bb149ea289&',
                     channelPfp:
-                        'https://cdn.discordapp.com/attachments/1056114049647120445/1172219710545350666/nhDLqeIgXMJBDIrX2bXavvHoWX0tsslDEh7k2xZ1P0W8b_CMRVigp2kxJubYEVwBcBlogZDes176-c-k-c0x00ffffff-no-rj.png?ex=655f85ad&is=654d10ad&hm=1e6113ed842beb690612cbffd3c300f48396c043a0b0bef24fbcd64d246211fd&',
-                    channelNameAndStuff:
-                        'Apna College • 1.3M views • 1 year ago',
-                    videoTitle:
-                        'All about Game development | What to study, jobs, packages? Simply Explained',
+                        'https://cdn.discordapp.com/attachments/1056114049647120445/1174598090469150810/APkrFKYxvJDi_rQrf3jVYymI6hwXiYEZuW3EyCfYRIYSPIIs176-c-k-c0x00ffffff-no-rj.png?ex=65682cb7&is=6555b7b7&hm=037d4ff77accebe25583c0faf89a8c3268b7a2f89dd839435b85dc1b5092c6bc&',
+                    channelNameAndStuff: 'Google • 8.4K views • 2 weeks ago',
+                    videoTitle: 'The Evolution of Google Maps in Asia Pacific',
                   ),
-                  ShortsSuggestions()
+                  const ShortsSuggestions(),
+                  const VideoCard(
+                      videoDuration: '1:45',
+                      thumbnailUrl:
+                          'https://cdn.discordapp.com/attachments/1056114049647120445/1174592151422771243/maxresdefault.png?ex=6568272f&is=6555b22f&hm=f8060731487b275d4864f1f4d9a35b3cd1bec231f3aeeb10cc97f9575ff93423&',
+                      channelPfp:
+                          'https://cdn.discordapp.com/attachments/1056114049647120445/1174591206911660073/APkrFKaD8t4oFlgXcZKoW512Z81CBJuej3K9uHAlSI0xs176-c-k-c0x00ffffff-no-rj.png?ex=6568264e&is=6555b14e&hm=d67a0ffafe990958a4e61f8305beef205f96215d757e0f727537d6bbefd418f8&',
+                      channelNameAndStuff: 'Flutter • 23K views • 3 months ago',
+                      videoTitle: 'Firebase Analytics (Package of the Week)'),
                 ]),
               ),
             ],
